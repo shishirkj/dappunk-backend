@@ -13,7 +13,7 @@ dotenv.config();
 const app = new Koa();
 app.use(
 	cors({
-		origin: "http://localhost:3001", 
+		origin: "https://dappunk-frontend.vercel.app",
 		allowMethods: ["GET", "POST", "OPTIONS"], 
 		allowHeaders: ["Content-Type", "Authorization"],
 	}),
