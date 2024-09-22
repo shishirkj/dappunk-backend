@@ -11,7 +11,13 @@ import Groq from "groq-sdk";
 dotenv.config();
 
 const app = new Koa();
-app.use(cors({ origin: "*" }));
+app.use(
+	cors({
+		origin: "http://localhost:3001", 
+		allowMethods: ["GET", "POST", "OPTIONS"], 
+		allowHeaders: ["Content-Type", "Authorization"],
+	}),
+);
 const router = new Router();
 const SECRET_KEY = process.env.SECRET_KEY || "your_secret_key";
 const groq = new Groq({
@@ -79,7 +85,6 @@ router.post("/chat", async (ctx) => {
 		ctx.body = { error: "Failed to process the request" };
 	}
 });
-
 
 //image generation
 const imageSchema = z.object({
