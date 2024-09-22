@@ -124,6 +124,10 @@ router.post("/generate-image", async (ctx) => {
 	}
 });
 
+router.get("/", async (ctx) => {
+	ctx.status = 200;
+	ctx.body = { message: "Server is running" };
+});
 router;
 
 app.use(router.routes()).use(router.allowedMethods());
